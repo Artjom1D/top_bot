@@ -1,23 +1,20 @@
 from settings import settings
 import discord
-# import * - это тоже самое, что перечислить все файлы
+
 from bot_logic import *
 
-# Переменная intents - хранит привилегии бота
 intents = discord.Intents.default()
-# Включаем привелегию на чтение сообщений
+
 intents.message_content = True
-# Создаем бота в переменной client и передаем все привелегии
 client = discord.Client(intents=intents)
 
 
-# Когда бот будет готов, он напишет в консоли свое название!
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
 
-# Когда бот будет получать сообщение, он будет отправлять в этот же канал какие-то сообщения!
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
